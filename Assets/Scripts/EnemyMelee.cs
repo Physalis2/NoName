@@ -11,7 +11,9 @@ public class EnemyMelee : MonoBehaviour, IEnemy
 
     void Start()
     {
+        Manager.newEenemyHasSpawend();
         baseEntry = GameObject.Find("BaseEntry");
+
     }
 
     void FixedUpdate()
