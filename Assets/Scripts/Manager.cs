@@ -3,26 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoBehaviour
+public static class Manager
 {
-    GameObject baseEntry;
-    static GameObject[] allEnemys;
-    public GameObject nearestEnemy;
-    private float distance;
-    private float nearestDistance = 1000000;
+    public static GameObject baseEntry;
+    public static GameObject[] allEnemys;
+    public static GameObject nearestEnemy;
+    public static float distance;
+    private static float nearestDistance = 1000000;
 
-    private void Start()
+    private static void Start()
     {
         baseEntry = GameObject.Find("BaseEntry");
         allEnemys = GameObject.FindGameObjectsWithTag("enemy");
     }
 
-    private void FixedUpdate()
+    private static void FixedUpdate()
     {
         trackNearestEnemy();
     }
 
-    public GameObject trackNearestEnemy()
+    private static GameObject trackNearestEnemy()
     {
         for (int i = 0; i < allEnemys.Length; i++)
         {
