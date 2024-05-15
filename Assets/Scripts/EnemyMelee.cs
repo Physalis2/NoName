@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMelee : MonoBehaviour, IEnemy
+public class EnemyMelee : MonoBehaviour
 {
 
     [SerializeField] GameObject baseEntry;
@@ -21,14 +21,4 @@ public class EnemyMelee : MonoBehaviour, IEnemy
         transform.position += (baseEntry.transform.position - transform.position).normalized * Time.deltaTime * speed;
     }
 
-    
-}
-
-
-public interface IEnemy
-{
-    private void hello()
-    {
-
-    }
 }

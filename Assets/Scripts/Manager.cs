@@ -6,7 +6,7 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     GameObject baseEntry;
-    public GameObject[] allEnemys;
+    static GameObject[] allEnemys;
     public GameObject nearestEnemy;
     private float distance;
     private float nearestDistance = 1000000;
@@ -38,10 +38,11 @@ public class Manager : MonoBehaviour
         return nearestEnemy;
     }
 
-    public void newEenemyHasSpawend()
+    public static void newEenemyHasSpawend()
     {
         allEnemys = new GameObject[GameObject.FindGameObjectsWithTag("enemy").Length];
         Array.Copy(GameObject.FindGameObjectsWithTag("enemy"), allEnemys, GameObject.FindGameObjectsWithTag("enemy").Length);
+        Debug.Log(GameObject.FindGameObjectsWithTag("enemy").Length);
     }
 
 }
