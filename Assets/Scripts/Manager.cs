@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class Manager
 {
-    public static GameObject baseEntry;
+    public static GameObject baseEntry = GameObject.Find("BaseEntry");
     public static GameObject[] allEnemys;
     public static GameObject nearestEnemy;
     public static float distance;
@@ -13,7 +13,6 @@ public static class Manager
 
     private static void Start()
     {
-        baseEntry = GameObject.Find("BaseEntry");
         allEnemys = GameObject.FindGameObjectsWithTag("enemy");
     }
 
