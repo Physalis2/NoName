@@ -6,8 +6,8 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     GameObject baseEntry;
-    static GameObject[] allEnemys;
-    public GameObject nearestEnemy;
+    public static GameObject[] allEnemys;
+    public static GameObject nearestEnemy;
     private float distance;
     private float nearestDistance = 1000000;
 
