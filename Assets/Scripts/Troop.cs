@@ -4,17 +4,17 @@ using UnityEngine;
 
 public abstract class Troop : Thing
 {
-    GameObject target = null;
+    public GameObject target = null;
     public float range = 10;
 
-    void Start()
+    public void troopStart()
     {
-
+        thingStart();
     }
 
     private void FixedUpdate()
     {
-        if (target = null)
+        if (target == null)
         {
             target = waitingForEnemy();
         }

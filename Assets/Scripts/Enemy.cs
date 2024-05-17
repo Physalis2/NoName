@@ -4,11 +4,9 @@ using UnityEngine;
 
 public abstract class Enemy : Thing
 {
-    [SerializeField] GameObject baseEntry = GameObject.Find("BaseEntry");
-    private float speed = 1;
-
     void Start()
     {
+        thingStart();
         Manager.newEenemyHasSpawend();
     }
     void FixedUpdate()

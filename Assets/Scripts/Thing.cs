@@ -8,5 +8,8 @@ public abstract class Thing : MonoBehaviour
     public float speed = 1f;
     public float health;
 
-
+    public void thingStart() 
+    {
+        if (baseEntry == null) { baseEntry = Manager.baseEntry; }
+    }   
 }
