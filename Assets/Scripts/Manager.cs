@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    
+    public static Manager ManagerScript;
+
+    private void Awake()
+    {
+        ManagerScript = this;
+    }
 }
