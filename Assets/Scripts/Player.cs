@@ -64,6 +64,8 @@ public class Player : MonoBehaviour
     private void spawnPrefab(GameObject prefab)
     {
         Vector3 spawnPosition = transform.position;
-        Instantiate(prefab, spawnPosition, Quaternion.identity);
+        GameObject Bullet = Instantiate(prefab, spawnPosition, Quaternion.identity);
+        Bullets bulletCs = Bullet.GetComponent<Bullets>();
+        bulletCs.bulletDmg = 0;
     }
 }

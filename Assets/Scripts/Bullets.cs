@@ -7,6 +7,7 @@ public class Bullets : MonoBehaviour
     [SerializeField] public GameObject[] projectiles;
 
     public static Bullets BulletScript;
+    public float bulletDmg;
 
     private void Awake()
     {
