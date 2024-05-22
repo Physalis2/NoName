@@ -66,6 +66,12 @@ public class Player : MonoBehaviour
         Vector3 spawnPosition = transform.position;
         GameObject Bullet = Instantiate(prefab, spawnPosition, Quaternion.identity);
         Bullets bulletCs = Bullet.GetComponent<Bullets>();
-        bulletCs.bulletDmg = 0;
+
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        Vector3 direction = mousePosition - transform.position;
+
+        bulletCs.direction = direction;
+
     }
 }

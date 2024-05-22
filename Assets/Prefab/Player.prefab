@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8822372407354479449}
   - component: {fileID: 4956559959198789673}
   - component: {fileID: 5432614388281380882}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fb8a0975dc1f54aa06ad3b665e2464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles: []
+  selectedBullet: {fileID: 0}
 --- !u!212 &8822372407354479449
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4050146686971914494}
   - component: {fileID: 5729643365298631002}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dircetion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
