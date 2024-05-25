@@ -24,6 +24,11 @@ public class Bullets : MonoBehaviour
 
     private void Update()
     {
+        move();
+    }
+
+    private void move()
+    {
         transform.position += (direction).normalized * speed * Time.deltaTime;
     }
 }
