@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7c27aafd5d5f14fb6aeaeeb2ca61aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletTypes: []
+  selectedBullet: {fileID: 0}
 --- !u!212 &8822372407354479449
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -220,7 +222,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2152194451269508539}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

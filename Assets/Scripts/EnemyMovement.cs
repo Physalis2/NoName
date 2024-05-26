@@ -2,23 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     GameObject player;
     Transform playerTR;
 
-
     float speed = 3f;
     float rotationSpeed = 3f;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         playerTR = player.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         move();

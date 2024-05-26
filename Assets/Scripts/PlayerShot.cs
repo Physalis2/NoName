@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerShot : MonoBehaviour
 {
-    public GameObject[] projectiles;
+    public GameObject[] bulletTypes;
     public GameObject selectedBullet;
 
     private void Start()
     {
-        projectiles = Bullets.BulletScript.projectiles;
-        selectedBullet = projectiles[0];
+        bulletTypes = GameObject.Find("Manager").GetComponent<BulletTypes>().bulletTypes;
+        selectedBullet = bulletTypes[0];
     }
 
     void Update()
