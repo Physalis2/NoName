@@ -1,19 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public class Bullets : MonoBehaviour
+public class BulletMovement : MonoBehaviour
 {
-    [SerializeField] public GameObject[] projectiles;
-
-    public static Bullets BulletScript;
-
-    private void Awake()
-    {
-        BulletScript = this;
-    }
-
     public Vector3 direction;
     public float speed;
 

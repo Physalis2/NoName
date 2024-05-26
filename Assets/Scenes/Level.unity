@@ -239,8 +239,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectiles:
   - {fileID: 267661874086474229, guid: d44cc190b0c859a4baeadcf54280e761, type: 3}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +561,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1001 &1029785723
 PrefabInstance:
   m_ObjectHideFlags: 0

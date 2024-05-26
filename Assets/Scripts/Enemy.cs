@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     GameObject player;
-    Player playerCS;
     Transform playerTR;
 
 
@@ -16,7 +15,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        playerCS = player.GetComponent<Player>();
         playerTR = player.transform;
     }
 

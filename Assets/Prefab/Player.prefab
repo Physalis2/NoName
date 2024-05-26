@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5751395237603294693}
-  - component: {fileID: 4890595160078862152}
+  - component: {fileID: 2380300679689929331}
+  - component: {fileID: 1858681869099813035}
+  - component: {fileID: 6556805332341374306}
   - component: {fileID: 8822372407354479449}
   - component: {fileID: 4956559959198789673}
   - component: {fileID: 5432614388281380882}
@@ -36,7 +38,7 @@ Transform:
   - {fileID: 4050146686971914494}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4890595160078862152
+--- !u!114 &2380300679689929331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,11 +47,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 2152194451269508539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13fb8a0975dc1f54aa06ad3b665e2464, type: 3}
+  m_Script: {fileID: 11500000, guid: cb1ac83325d1a5b42b6f929ebc83a5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectiles: []
-  selectedBullet: {fileID: 0}
+  speed: 5
+--- !u!114 &1858681869099813035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152194451269508539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eacb7891167f45478a39c71ac7eaa4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6556805332341374306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152194451269508539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7c27aafd5d5f14fb6aeaeeb2ca61aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &8822372407354479449
 SpriteRenderer:
   m_ObjectHideFlags: 0
