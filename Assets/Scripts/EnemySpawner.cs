@@ -37,10 +37,12 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnEnemys(Enemy);
         }
+        
     }
 
     public void spawnEnemys(GameObject prefab)
     {
-        Instantiate(prefab, spawnPoints[UnityEngine.Random.Range(0,16)].transform.position, Quaternion.identity);
+        Vector3 randomV3 = new Vector3(UnityEngine.Random.Range(-5f,5), UnityEngine.Random.Range(-5f,5),0);
+        Instantiate(prefab, spawnPoints[UnityEngine.Random.Range(0,16)].transform.position + randomV3, Quaternion.identity);
     }
 }
