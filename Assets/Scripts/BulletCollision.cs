@@ -8,12 +8,12 @@ public class BulletCollision : MonoBehaviour
     float dmg = 50f;
     int bulletDurability = 1;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collisiojn");
-        other.gameObject.GetComponent<EnemyHealthCollission>().takeDmg(dmg);
-        other.gameObject.GetComponent<EnemyHealthCollission>().alive();
-        if(bulletDurability <= 0)
+        collision.gameObject.GetComponent<EnemyHealthCollission>().takeDmg(dmg);
+        collision.gameObject.GetComponent<EnemyHealthCollission>().alive();
+        if (bulletDurability <= 0)
         {
             GameObject.Destroy(gameObject);
         }
