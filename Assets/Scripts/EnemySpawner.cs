@@ -28,14 +28,22 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        
+        wavesSpawn();
     }
+
+
+    int wave = 1;
+    float waveCouldown = 3f;
 
     public void wavesSpawn()
     {
-        for (int i = 0;i < 5;i++)
+        if (TimerCS.elapsedTime > waveCouldown * (wave -1))
         {
-            spawnEnemys(Enemy);
+            for (int i = 0; i < wave; i++)
+            {
+                spawnEnemys(Enemy);
+            }
+            wave++;
         }
     }
 

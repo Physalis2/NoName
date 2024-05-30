@@ -18,7 +18,7 @@ public class ButtonUi : MonoBehaviour
         SceneManager.LoadScene(opptions);
     }
 
-    public void qiutButton()
+    public void quitButton()
     {
         Application.Quit();
         Debug.Log("quit");

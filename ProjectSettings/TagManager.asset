@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
+  - Player Bullet
+  - Enemy
+  - Enemy Bullet
   layers:
   - Default
   - TransparentFX
@@ -12,13 +14,13 @@ TagManager:
   - 
   - Water
   - UI
+  - 
   - Impassible
   - Player
   - Player Bullets
-  - 'Enemy '
+  - Enemy
   - Enemy Bullets
-  - Eviroment
-  - 
+  - Enviroment
   - 
   - 
   - 
