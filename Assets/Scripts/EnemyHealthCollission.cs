@@ -23,4 +23,17 @@ public class EnemyHealthCollission : MonoBehaviour
     {
         health -= dmg;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Debug.Log("bullet");
+        }
+        else
+        {
+            Debug.Log("Player");
+        }
+
+    }
 }

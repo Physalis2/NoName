@@ -10,9 +10,9 @@ public class BulletCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collisiojn");
         collision.gameObject.GetComponent<EnemyHealthCollission>().takeDmg(dmg);
         collision.gameObject.GetComponent<EnemyHealthCollission>().alive();
+        bulletDurability--;
         if (bulletDurability <= 0)
         {
             GameObject.Destroy(gameObject);

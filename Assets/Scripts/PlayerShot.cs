@@ -15,9 +15,12 @@ public class PlayerShot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!TimerCS.istPausiert)
         {
-            spawnPrefab(selectedBullet);
+            if (Input.GetMouseButtonDown(0))
+            {
+                spawnPrefab(selectedBullet);
+            }
         }
     }
 

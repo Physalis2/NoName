@@ -31,13 +31,12 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    public void nextWave(int wave)
+    public void wavesSpawn()
     {
-        for (int i = 0;i < wave;i++)
+        for (int i = 0;i < 5;i++)
         {
             spawnEnemys(Enemy);
         }
-        
     }
 
     public void spawnEnemys(GameObject prefab)
