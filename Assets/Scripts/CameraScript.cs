@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    [SerializeField] GameObject PLayer;
+    [SerializeField] GameObject Player;
     [SerializeField] GameObject battelFieldMarker;
     void Start()
     {
@@ -29,7 +29,7 @@ public class CameraScript : MonoBehaviour
         }
         else
         {
-            newPos = PLayer.transform.position;
+            newPos = Player.transform.position;
             newPos.z = transform.position.z;
             transform.position = newPos;
 

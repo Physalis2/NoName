@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,60 +10,81 @@ public class PlayerAnimation : MonoBehaviour
     [Header("Animation")]
 
     private static Animator animator;
-    private static AnimationClip currentClip;
+    private static string currentClip;
 
     [Header("AnimationMovement")]
     // Movement
-    [SerializeField] public static AnimationClip IdleFront;
-    [SerializeField] public static AnimationClip IdleBack;
-    [SerializeField] public static AnimationClip IdleLeft;
-    [SerializeField] public static AnimationClip IdleRigth;
-                     
-    [SerializeField] public static AnimationClip WalkFront;
-    [SerializeField] public static AnimationClip WalkBack;
-    [SerializeField] public static AnimationClip WalkLeft;
-    [SerializeField] public static AnimationClip WalkRigth;
-                     
-    [SerializeField] public static AnimationClip RunFront;
-    [SerializeField] public static AnimationClip RunBack;
-    [SerializeField] public static AnimationClip RunLeft;
-    [SerializeField] public static AnimationClip RunRigth;
+    public static string IdleFront = "IdleFront";
+    public static string IdleBack  = "IdleBack";
+    public static string IdleLeft  = "IdleLeft";
+    public static string IdleRigth = "IdleRigth";
+    
+    public static string WalkFront = "WalkFront";
+    public static string WalkBack  = "WalkBack";
+    public static string WalkLeft  = "WalkLeft";
+    public static string WalkRigth = "WalkRigth";
+    
+    public static string RunFront = "RunFront";
+    public static string RunBack  = "RunBack";
+    public static string RunLeft  = "RunLeft";
+    public static string RunRigth = "RunRigth";
 
     [Header("AnimationTools")]
     // Tools
-    [SerializeField] public static AnimationClip TilingFront;
-    [SerializeField] public static AnimationClip TilingBack;
-    [SerializeField] public static AnimationClip TilingLeft;
-    [SerializeField] public static AnimationClip TilingRigth;
-                     
-    [SerializeField] public static AnimationClip AxeFront;
-    [SerializeField] public static AnimationClip AxeBack;
-    [SerializeField] public static AnimationClip AxeLeft;
-    [SerializeField] public static AnimationClip AxeRigth;
-                     
-    [SerializeField] public static AnimationClip WateringFront;
-    [SerializeField] public static AnimationClip WateringBack;
-    [SerializeField] public static AnimationClip WateringLeft;
-    [SerializeField] public static AnimationClip WateringRigth;
+    public static string TilingBack  = "TilingBack";
+    public static string TilingFront = "TilingFront";
+    public static string TilingLeft  = "TilingLeft";
+    public static string TilingRigth = "TilingRigth";
+    
+    public static string AxeFront = "AxeFront";
+    public static string AxeBack  = "AxeBack";
+    public static string AxeLeft  = "AxeLeft";
+    public static string AxeRigth = "AxeRigth";
+    
+    public static string WateringFront = "WateringFront";
+    public static string WateringBack  = "WateringBack";
+    public static string WateringLeft  = "WateringLeft";
+    public static string WateringRigth = "WateringRigth";
 
     //  =====================
+
+    public static bool isWaling;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public static void ChangeAnimation(AnimationClip newAnimation)
+    public static void ChangeAnimation(string newAnimation)
     {
-        if (currentClip == newAnimation) return;
+        if (!TimerCS.istPausiert)
+        {
+            if (currentClip == newAnimation)
+            {
+                return;
+            }
+            else
+            {
+                animator.Play(newAnimation);
 
-        animator.Play(newAnimation.name);
-
-        currentClip = newAnimation;
+                currentClip = newAnimation;
+            }
+        }
     }
 
     private void Update()
     {
-        
+        if (isWaling == false)
+        {
+            ChangeAnimation(IdleFront);
+        }
+        if (TimerCS.istPausiert)
+        {
+            animator.enabled = false;
+        }
+        else
+        {
+            animator.enabled = true;
+        }
     }
 }
