@@ -44,3 +44,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Water
+    uniqueID: 655655949
+    locked: 0
+  - name: Island
+    uniqueID: 119511451
+    locked: 0
+  - name: Soil
+    uniqueID: 2573034739
+    locked: 0
+  - name: Grass
+    uniqueID: 1541393203
+    locked: 0
+  - name: Objekts
+    uniqueID: 380115199
+    locked: 0
+  - name: New Layer 6
+    uniqueID: 1557874591
+    locked: 0

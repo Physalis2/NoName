@@ -77,6 +77,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +90,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -130,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 7
-    spriteID: bd21186a9cde7704eb4f9d2945fbf277
+    spriteID: 4f902e6a9b466e54395868ff99436597
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,15 +152,17 @@ ScriptedImporter:
     cells:
     - name: Sprout Lands defautlt palette
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 7
-      spriteId: bd21186a9cde7704eb4f9d2945fbf277
+      spriteId: 4f902e6a9b466e54395868ff99436597
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 7}

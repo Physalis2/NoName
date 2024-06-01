@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
@@ -20,7 +21,7 @@ public class CameraScript : MonoBehaviour
     private void folliwPlayer()
     {
         Vector3 newPos;
-        if (PLayer.transform.position.y > 0) 
+        if (Input.GetKey(KeyCode.F)) 
         {
             newPos = battelFieldMarker.transform.position;
             newPos.z = transform.position.z;
