@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
             left = false;
             lastKeyPressed = checkForOtherKey('A');
         }
-
+        
         if (Input.GetKey(KeyCode.D))
         {
             rigth = true;
