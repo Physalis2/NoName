@@ -7,14 +7,30 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float WalkingSpeed;
 
+
+    public bool isMovingUp;
+    public bool isMovingDown;
+    public bool isMovingLeft;
+    public bool isMovingRight;
+
+    private bool prevIsMovingUp;
+    private bool prevIsMovingDown;
+    private bool prevIsMovingLeft;
+    private bool prevIsMovingRight;
+
+    public bool isWalking2;
+
     void Start()
     {
-
+        prevIsMovingUp = isMovingUp;
+        prevIsMovingDown = isMovingDown;
+        prevIsMovingLeft = isMovingLeft;
+        prevIsMovingRight = isMovingRight;
     }
 
     void Update()
     {
-
+        isWalking2 = iswalking();
     }
     private void FixedUpdate()
     {
@@ -113,101 +129,142 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(PlayerAnimation.isWaling);
     }
 
-    private bool up;
-    private bool down;
-    private bool rigth;
-    private bool left;
-
-    private char lastKeyPressed = '0';
-    private char lastDirektion = '0';
-
-
-
     private void movePlayer()
     {
-        if (Input.GetKey(KeyCode.W))
+        isMovingUp = Input.GetKey(KeyCode.W);
+        isMovingDown = Input.GetKey(KeyCode.S);
+        isMovingLeft = Input.GetKey(KeyCode.A);
+        isMovingRight = Input.GetKey(KeyCode.D);
+
+        if (!iswalking())
         {
-            up = true;
-            lastKeyPressed = 'W';
+            Debug.Log("HI");
+            if (prevIsMovingUp) PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleBack);
+            if (prevIsMovingDown) PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleFront);
+            if (prevIsMovingLeft) PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleLeft);
+            if (prevIsMovingRight) PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleRigth);
+            else
+            {
+                PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleFront);
+            }
         }
-        if (!Input.GetKey(KeyCode.W) && iswalking())
-        { 
-            up = false;
-            lastKeyPressed = checkForOtherKey('W');
+        else
+        {
+            if (prevIsMovingUp && !isMovingUp && isMovingUp == false)
+            {
+                if(isMovingDown)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+                }
+                if (isMovingLeft)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+                }
+                if (isMovingRight)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+                }
+            }
+            if (prevIsMovingDown && !isMovingDown && isMovingDown == false)
+            {
+                if (isMovingUp)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+                }
+                if (isMovingLeft)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+                }
+                if (isMovingRight)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+                }
+            }
+            if (prevIsMovingLeft && !isMovingLeft && isMovingLeft == false)
+            {
+                if (isMovingUp)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+                }
+                if (isMovingDown)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+                }
+                if (isMovingRight)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+                }
+            }
+            if (prevIsMovingRight && !isMovingRight && isMovingRight == false)
+            {
+                if (isMovingUp)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+                }
+                if (isMovingDown)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+                }
+                if (isMovingLeft)
+                {
+                    PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+                }
+            }
+            if ((prevIsMovingUp && !isMovingUp) && isMovingUp == true)
+            {
+                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+            }
+            if ((prevIsMovingDown && !isMovingDown) && isMovingDown == true)
+            {
+                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+            }
+            if ((prevIsMovingLeft && !isMovingLeft) && isMovingLeft == true)
+            {
+                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+            }
+            if ((prevIsMovingRight && !isMovingRight) && isMovingRight == true)
+            {
+                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+            }
         }
 
-        if (Input.GetKey(KeyCode.S) )
+        prevIsMovingUp = isMovingUp;
+        prevIsMovingDown = isMovingDown;
+        prevIsMovingLeft = isMovingLeft;
+        prevIsMovingRight = isMovingRight;
+
+        Vector2 movement = Vector2.zero;
+        if (isMovingUp)
         {
-            down = true;
-            lastKeyPressed = 'S';
+            movement += Vector2.up;
         }
-        if (!Input.GetKey(KeyCode.S) && iswalking())
+        if (isMovingDown)
         {
-            down = false;
-            lastKeyPressed = checkForOtherKey('S');
+            movement += Vector2.down;
+        }
+        if (isMovingLeft)
+        {
+            movement += Vector2.left;
+        }
+        if (isMovingRight)
+        {
+            movement += Vector2.right;
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            left = true;
-            lastKeyPressed = 'A';
-        }
-        if (!Input.GetKey(KeyCode.A) && iswalking())
-        {
-            left = false;
-            lastKeyPressed = checkForOtherKey('A');
-        }
-        
-        if (Input.GetKey(KeyCode.D))
-        {
-            rigth = true;
-            lastKeyPressed = 'D';
-        }
-        if (!Input.GetKey(KeyCode.D) && iswalking())
-        {
-            rigth = false;
-            lastKeyPressed = checkForOtherKey('D');
-        }
-        Debug.Log(lastKeyPressed);
+        movement.Normalize();
+
+        transform.Translate(movement * WalkingSpeed * Time.deltaTime);
     }
 
     private bool iswalking()
     {
-        if(up || down || left || rigth)
+        if(isMovingUp || isMovingDown || isMovingLeft || isMovingRight)
         {
             return true;
         }
         else
         {
             return false;
-        }
-    }
-
-    private char checkForOtherKey(char key)
-    {
-        if (up == true)
-        {
-            return 'W';
-        }
-        else if (down == true)
-        {
-            return 'S';
-        }
-        else if (left == true)
-        {
-            return 'A';
-        }
-        else if (rigth == true)
-        {
-            return 'D';
-        }
-        else if (lastKeyPressed == '0')
-        {
-            return '0';
-        }
-        else
-        {
-            return key;
         }
     }
 }
