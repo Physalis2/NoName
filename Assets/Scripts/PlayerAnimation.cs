@@ -48,8 +48,6 @@ public class PlayerAnimation : MonoBehaviour
 
     //  =====================
 
-    public static bool isWaling;
-
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -69,22 +67,6 @@ public class PlayerAnimation : MonoBehaviour
 
                 currentClip = newAnimation;
             }
-        }
-    }
-
-    private void Update()
-    {
-        if (isWaling == false)
-        {
-            ChangeAnimation(IdleFront);
-        }
-        if (TimerCS.istPausiert)
-        {
-            animator.enabled = false;
-        }
-        else
-        {
-            animator.enabled = true;
         }
     }
 }
