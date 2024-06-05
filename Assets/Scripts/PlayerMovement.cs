@@ -90,8 +90,6 @@ public class PlayerMovement : MonoBehaviour
         isMovingLeft = Input.GetKey(KeyCode.A);
         isMovingRight = Input.GetKey(KeyCode.D);
 
-        Debug.Log("stand");
-
         checkForBoolChangeToTrue();
         checkForBoolChangeToFalse();
 

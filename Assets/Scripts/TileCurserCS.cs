@@ -10,10 +10,12 @@ public class TileCurserCS : MonoBehaviour
     [SerializeField] char playerDirection;
 
     [Header("")]
-    [SerializeField] GameObject curser1;
+    [SerializeField] GameObject curser;
+    [SerializeField] Vector2 positionMiddel;
     void Start()
     {
-        curser1 = GameObject.Find("TileCurser");
+        curser = GameObject.Find("TileCurserInvis");
+        curser.SetActive(false);
         grid = GameObject.Find("Grid").GetComponent<Grid>();
         player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
@@ -52,5 +54,25 @@ public class TileCurserCS : MonoBehaviour
         }
 
         transform.position = grid.CellToWorld(gridPos);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Soil")
+        {
+            Debug.Log("hi");
+            positionMiddel = collision.gameObject.GetComponent<PlotCS>().middelTile;
+            curser.SetActive(true);
+            curser.transform.position = collision.gameObject.GetComponent<PlotCS>().nearestPlotPosition();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Soil")
+        {
+            curser.SetActive(false);
+        }
     }
 }
