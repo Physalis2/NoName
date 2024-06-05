@@ -33,6 +33,24 @@ public class TileCurserCS : MonoBehaviour
     {
         Vector3 playerPos = player.transform.position;
         Vector3Int gridPos = grid.WorldToCell(playerPos);
+        
+        if (playerDirection == 'W')
+        {
+            gridPos += new Vector3Int(0, 1, 0);
+        }
+        if (playerDirection == 'S')
+        {
+            gridPos += new Vector3Int(0, -1, 0);
+        }
+        if (playerDirection == 'A')
+        {
+            gridPos += new Vector3Int(-1, 0, 0);
+        }
+        if (playerDirection == 'D')
+        {
+            gridPos += new Vector3Int(1, 0, 0);
+        }
+
         transform.position = grid.CellToWorld(gridPos);
     }
 }

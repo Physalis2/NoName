@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8931899880229827596}
   m_Layer: 0
   m_Name: Soil
-  m_TagString: Untagged
+  m_TagString: Soil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -1721932557
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 23161129, guid: 114c98ad63f0f5340b0da006c6495d5b, type: 3}
+  m_Sprite: {fileID: 1967991118, guid: 114c98ad63f0f5340b0da006c6495d5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
