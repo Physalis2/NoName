@@ -7,23 +7,25 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float WalkingSpeed;
 
-    [Header("")]
-    public bool isMovingUp;
-    public bool isMovingDown;
-    public bool isMovingLeft;
-    public bool isMovingRight;
+    bool isMovingUp;
+    bool isMovingDown;
+    bool isMovingLeft;
+    bool isMovingRight;
+
+    bool prevIsMovingUp;
+    bool prevIsMovingDown;
+    bool prevIsMovingLeft;
+    bool prevIsMovingRight;
 
     [Header("")]
-    public bool prevIsMovingUp;
-    public bool prevIsMovingDown;
-    public bool prevIsMovingLeft;
-    public bool prevIsMovingRight;
+    public char direction;
 
-    [Header("")]
     public bool isWalking2;
+
 
     void Start()
     {
+        direction = 'S';
         prevIsMovingUp = isMovingUp;
         prevIsMovingDown = isMovingDown;
         prevIsMovingLeft = isMovingLeft;
@@ -104,18 +106,22 @@ public class PlayerMovement : MonoBehaviour
         if (!prevIsMovingUp && isMovingUp)
         {
             PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+            direction = 'W';
         }
         if (!prevIsMovingDown && isMovingDown)
         {
             PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+            direction = 'S';
         }
         if (!prevIsMovingLeft && isMovingLeft)
         {
             PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+            direction = 'A';
         }
         if (!prevIsMovingRight && isMovingRight)
         {
             PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+            direction = 'D';
         }
     }
 
@@ -126,19 +132,23 @@ public class PlayerMovement : MonoBehaviour
             if(!iswalking())
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleBack);
+                direction = 'W';
             }
 
             if (isMovingDown)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+                direction = 'S';
             }
             if (isMovingLeft)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+                direction = 'A';
             }
             if (isMovingRight)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+                direction = 'D';
             }
         }
         if (prevIsMovingDown && !isMovingDown)
@@ -146,19 +156,23 @@ public class PlayerMovement : MonoBehaviour
             if (!iswalking())
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleFront);
+                direction = 'S';
             }
 
             if (isMovingUp)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+                direction = 'W';
             }
             if (isMovingLeft)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+                direction = 'A';
             }
             if (isMovingRight)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+                direction = 'D';
             }
         }
         if (prevIsMovingLeft && !isMovingLeft)
@@ -166,19 +180,23 @@ public class PlayerMovement : MonoBehaviour
             if (!iswalking())
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleLeft);
+                direction = 'A';
             }
 
             if (isMovingUp)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+                direction = 'W';
             }
             if (isMovingDown)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+                direction = 'S';
             }
             if (isMovingRight)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
+                direction = 'D';
             }
         }
         if (prevIsMovingRight && !isMovingRight)
@@ -191,14 +209,17 @@ public class PlayerMovement : MonoBehaviour
             if (isMovingUp)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
+                direction = 'W';
             }
             if (isMovingDown)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
+                direction = 'S';
             }
             if (isMovingLeft)
             {
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
+                direction = 'A';
             }
         }
     }

@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    [SerializeField] GameObject Player;
+    [SerializeField] GameObject player;
     [SerializeField] GameObject battelFieldMarker;
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class CameraScript : MonoBehaviour
         }
         else
         {
-            newPos = Player.transform.position;
+            newPos = player.transform.position;
             newPos.z = transform.position.z;
             transform.position = newPos;
 

@@ -20,8 +20,8 @@ TagManager:
   - Player Bullets
   - Enemy
   - Enemy Bullets
+  - Soil
   - Enviroment
-  - 
   - 
   - 
   - 
@@ -53,12 +53,15 @@ TagManager:
   - name: Soil
     uniqueID: 2573034739
     locked: 0
+  - name: GrassOverSoil
+    uniqueID: 1557874591
+    locked: 0
   - name: Grass
     uniqueID: 1541393203
     locked: 0
   - name: Objekts
     uniqueID: 380115199
     locked: 0
-  - name: New Layer 6
-    uniqueID: 1557874591
+  - name: New Layer 7
+    uniqueID: 2981484867
     locked: 0

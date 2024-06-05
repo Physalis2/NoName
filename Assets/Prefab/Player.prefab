@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WalkingSpeed: 5
+  direction: 83
+  isWalking2: 0
 --- !u!114 &2380300679689929331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +188,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 380115199
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -541086252, guid: 58c70d18bf23ad14e95681d566441235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
