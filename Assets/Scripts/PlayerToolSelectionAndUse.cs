@@ -58,7 +58,7 @@ public class PlayerToolSelectionAndUse : MonoBehaviour
         }
         if (!usingTool)
         {
-            playerMovement.idleAnimation();
+
         }
     }
 

@@ -44,15 +44,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!TimerCS.istPausiert)
         {
-            if (playerTool.usingTool)
-            {
 
-            }
-            else
-            {
-                movePlayer();
-                animateMovement();
-            }
+            movePlayer();
+            animateMovement();
+
         }
     }
 
@@ -94,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void animateMovement()
+    public void animateMovement()
     {
         isMovingUp = Input.GetKey(KeyCode.W);
         isMovingDown = Input.GetKey(KeyCode.S);

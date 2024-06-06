@@ -47,7 +47,7 @@ public class PlotCS : MonoBehaviour
         int nearestPlot = 0;
         for (int i = 0; i < Saatlöcher.Length; i++)
         {
-            if (nearestDistance > Vector2.Distance(player.transform.position, Saatlöcher[i].transform.position));
+            if (nearestDistance > Vector2.Distance(player.transform.position, Saatlöcher[i].transform.position))
             {
                 nearestDistance = Vector2.Distance(player.transform.position, Saatlöcher[i].transform.position);
                 nearestPlot = i;
