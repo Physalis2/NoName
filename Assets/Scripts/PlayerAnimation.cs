@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerAnimation : MonoBehaviour
 {
     // Animation ============
     [Header("Animation")]
+    [SerializeField] PlayerMovement playerMovement;
 
     private static Animator animator;
     private static string currentClip;
@@ -31,10 +33,10 @@ public class PlayerAnimation : MonoBehaviour
 
     [Header("AnimationTools")]
     // Tools
-    public static string TilingBack  = "TilingBack";
-    public static string TilingFront = "TilingFront";
-    public static string TilingLeft  = "TilingLeft";
-    public static string TilingRigth = "TilingRigth";
+    public static string TilingBack  = "TillingBack";
+    public static string TilingFront = "TillingFront";
+    public static string TilingLeft  = "TillingLeft";
+    public static string TilingRigth = "TillingRigth";
     
     public static string AxeFront = "AxeFront";
     public static string AxeBack  = "AxeBack";
@@ -68,5 +70,16 @@ public class PlayerAnimation : MonoBehaviour
                 currentClip = newAnimation;
             }
         }
+    }
+
+    public static IEnumerator playOnce(string newAnimation)
+    {
+        string oldClip = currentClip;
+
+        ChangeAnimation(newAnimation);
+        
+        yield return new WaitForSeconds(1.3f);
+
+        ChangeAnimation(oldClip);
     }
 }

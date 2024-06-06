@@ -259,6 +259,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211966180}
   m_CullTransparentMesh: 1
+--- !u!114 &285872561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 126078725519889959, guid: adbebd9a7bea0014fb91e677ea4625ac, type: 3}
+  m_PrefabInstance: {fileID: 1138993779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f2ae5763cc45342946570ed495556e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &288075163
 GameObject:
   m_ObjectHideFlags: 0
@@ -20771,6 +20782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2367891623173569465, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
+      propertyPath: tileCurser
+      value: 
+      objectReference: {fileID: 285872561}
     - target: {fileID: 5751395237603294693, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20966,7 +20981,7 @@ GameObject:
   - component: {fileID: 1016660298}
   - component: {fileID: 1016660302}
   - component: {fileID: 1016660301}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Collison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23439,7 +23454,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -23447,9 +23462,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 7
 --- !u!1001 &1059572649
 PrefabInstance:

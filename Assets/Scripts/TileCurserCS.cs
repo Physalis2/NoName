@@ -12,6 +12,7 @@ public class TileCurserCS : MonoBehaviour
     [Header("")]
     [SerializeField] GameObject curser;
     [SerializeField] Vector2 positionMiddel;
+    public bool isAttached;
     void Start()
     {
         curser = GameObject.Find("TileCurserInvis");
@@ -64,6 +65,7 @@ public class TileCurserCS : MonoBehaviour
             Debug.Log("hi");
             positionMiddel = collision.gameObject.GetComponent<PlotCS>().middelTile;
             curser.SetActive(true);
+            isAttached = true;
             curser.transform.position = collision.gameObject.GetComponent<PlotCS>().nearestPlotPosition();
         }
     }
@@ -73,6 +75,7 @@ public class TileCurserCS : MonoBehaviour
         if (collision.tag == "Soil")
         {
             curser.SetActive(false);
+            isAttached = false;
         }
     }
 }

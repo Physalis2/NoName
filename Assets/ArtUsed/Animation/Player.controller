@@ -163,7 +163,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TilingLeft
+  m_Name: TillingLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -215,7 +215,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShovelBack
+  m_Name: TillingBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -274,73 +274,73 @@ AnimatorStateMachine:
     m_Position: {x: 190, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7307807785299106625}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_Position: {x: -60, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1392842605940287316}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: -30, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6686100180686824420}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_Position: {x: 10, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5183837397572727331}
-    m_Position: {x: 340, y: 260, z: 0}
+    m_Position: {x: 200, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5411194271702934489}
-    m_Position: {x: 375, y: 325, z: 0}
+    m_Position: {x: 240, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5656938510386211405}
-    m_Position: {x: 410, y: 390, z: 0}
+    m_Position: {x: 270, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 952463711826952471}
-    m_Position: {x: 445, y: 455, z: 0}
+    m_Position: {x: 310, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7886062455905236089}
-    m_Position: {x: 480, y: 520, z: 0}
+    m_Position: {x: 470, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6392903401495843187}
-    m_Position: {x: 515, y: 585, z: 0}
+    m_Position: {x: 500, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3794602250167561299}
-    m_Position: {x: 550, y: 650, z: 0}
+    m_Position: {x: 540, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5973326385574567503}
-    m_Position: {x: 585, y: 715, z: 0}
+    m_Position: {x: 570, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1170345417279102732}
-    m_Position: {x: 620, y: 780, z: 0}
+    m_Position: {x: 730, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5228398800683138402}
-    m_Position: {x: 655, y: 845, z: 0}
+    m_Position: {x: 760, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5477061219919972135}
-    m_Position: {x: 690, y: 910, z: 0}
+    m_Position: {x: 790, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5060969577364055919}
-    m_Position: {x: 725, y: 975, z: 0}
+    m_Position: {x: 820, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3590741923175984135}
-    m_Position: {x: 760, y: 1040, z: 0}
+    m_Position: {x: 990, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8962164350207430707}
-    m_Position: {x: 795, y: 1105, z: 0}
+    m_Position: {x: 1020, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9107247016373605149}
-    m_Position: {x: 830, y: 1170, z: 0}
+    m_Position: {x: 1060, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2746502363541962326}
-    m_Position: {x: 865, y: 1235, z: 0}
+    m_Position: {x: 1090, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5792400041531321571}
-    m_Position: {x: 900, y: 1300, z: 0}
+    m_Position: {x: 1260, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3890895425376798443}
-    m_Position: {x: 935, y: 1365, z: 0}
+    m_Position: {x: 1290, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6598470809749918835}
-    m_Position: {x: 970, y: 1430, z: 0}
+    m_Position: {x: 1330, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8849971434033837677}
-    m_Position: {x: 1005, y: 1495, z: 0}
+    m_Position: {x: 1360, y: 240, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -348,7 +348,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 20, y: -50, z: 0}
   m_EntryPosition: {x: 210, y: -50, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ExitPosition: {x: 400, y: -50, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 6242418537632584947}
 --- !u!1102 &-3794602250167561299
@@ -510,7 +510,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShovelFront
+  m_Name: TillingFront
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

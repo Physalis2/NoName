@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("")]
+    [SerializeField] PlayerToolSelectionAndUse playerTool;
+
+    [Header("")]
     [SerializeField] float WalkingSpeed;
 
     bool isMovingUp;
@@ -40,8 +44,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!TimerCS.istPausiert)
         {
-            movePlayer();
-            animateMovement();
+            if (playerTool.usingTool)
+            {
+
+            }
+            else
+            {
+                movePlayer();
+                animateMovement();
+            }
         }
     }
 
@@ -219,6 +230,26 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
                 direction = 'A';
             }
+        }
+    }
+
+    public void idleAnimation()
+    {
+        if (direction == 'W')
+        {
+            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleBack);
+        }
+        if (direction == 'S')
+        {
+            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleFront);
+        }
+        if (direction == 'A')
+        {
+            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleLeft);
+        }
+        if (direction == 'D')
+        {
+            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleRigth);
         }
     }
 }
