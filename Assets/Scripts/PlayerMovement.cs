@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        isWalking2 = iswalking();
+
     }
     private void FixedUpdate()
     {
@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         {
 
             movePlayer();
-            animateMovement();
 
         }
     }
@@ -75,176 +74,5 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(movement * WalkingSpeed * Time.deltaTime);
 
-    }
-
-    private bool iswalking()
-    {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public void animateMovement()
-    {
-        isMovingUp = Input.GetKey(KeyCode.W);
-        isMovingDown = Input.GetKey(KeyCode.S);
-        isMovingLeft = Input.GetKey(KeyCode.A);
-        isMovingRight = Input.GetKey(KeyCode.D);
-
-        checkForBoolChangeToTrue();
-        checkForBoolChangeToFalse();
-
-        prevIsMovingUp = isMovingUp;
-        prevIsMovingDown = isMovingDown;
-        prevIsMovingLeft = isMovingLeft;
-        prevIsMovingRight = isMovingRight;
-    }
-
-    private void checkForBoolChangeToTrue()
-    {
-        if (!prevIsMovingUp && isMovingUp)
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
-            direction = 'W';
-        }
-        if (!prevIsMovingDown && isMovingDown)
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
-            direction = 'S';
-        }
-        if (!prevIsMovingLeft && isMovingLeft)
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
-            direction = 'A';
-        }
-        if (!prevIsMovingRight && isMovingRight)
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
-            direction = 'D';
-        }
-    }
-
-    private void checkForBoolChangeToFalse()
-    {
-        if (prevIsMovingUp && !isMovingUp)
-        {
-            if(!iswalking())
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleBack);
-                direction = 'W';
-            }
-
-            if (isMovingDown)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
-                direction = 'S';
-            }
-            if (isMovingLeft)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
-                direction = 'A';
-            }
-            if (isMovingRight)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
-                direction = 'D';
-            }
-        }
-        if (prevIsMovingDown && !isMovingDown)
-        {
-            if (!iswalking())
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleFront);
-                direction = 'S';
-            }
-
-            if (isMovingUp)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
-                direction = 'W';
-            }
-            if (isMovingLeft)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
-                direction = 'A';
-            }
-            if (isMovingRight)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
-                direction = 'D';
-            }
-        }
-        if (prevIsMovingLeft && !isMovingLeft)
-        {
-            if (!iswalking())
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleLeft);
-                direction = 'A';
-            }
-
-            if (isMovingUp)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
-                direction = 'W';
-            }
-            if (isMovingDown)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
-                direction = 'S';
-            }
-            if (isMovingRight)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkRigth);
-                direction = 'D';
-            }
-        }
-        if (prevIsMovingRight && !isMovingRight)
-        {
-            if (!iswalking())
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleRigth);
-            }
-
-            if (isMovingUp)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkBack);
-                direction = 'W';
-            }
-            if (isMovingDown)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkFront);
-                direction = 'S';
-            }
-            if (isMovingLeft)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WalkLeft);
-                direction = 'A';
-            }
-        }
-    }
-
-    public void idleAnimation()
-    {
-        if (direction == 'W')
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleBack);
-        }
-        if (direction == 'S')
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleFront);
-        }
-        if (direction == 'A')
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleLeft);
-        }
-        if (direction == 'D')
-        {
-            PlayerAnimation.ChangeAnimation(PlayerAnimation.IdleRigth);
-        }
     }
 }
