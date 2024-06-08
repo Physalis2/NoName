@@ -145,13 +145,20 @@ public class PlayerAnimation : MonoBehaviour
 
     private bool iswalking()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (playerTools.usingTool)
         {
-            return true;
+            return false;
         }
         else
         {
-            return false;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
@@ -379,6 +386,4 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
     }
-
-
 }

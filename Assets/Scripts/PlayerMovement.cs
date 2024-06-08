@@ -24,12 +24,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("")]
     public char direction;
 
-    public bool isWalking2;
-
-
     void Start()
     {
-        direction = 'S';
         prevIsMovingUp = isMovingUp;
         prevIsMovingDown = isMovingDown;
         prevIsMovingLeft = isMovingLeft;
