@@ -44,9 +44,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!TimerCS.istPausiert)
         {
+            if (playerTool.usingTool)
+            {
 
-            movePlayer();
-
+            }
+            else
+            {
+                movePlayer();
+            }
         }
     }
 

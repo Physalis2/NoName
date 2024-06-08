@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class PlayerAnimation : MonoBehaviour
     [Header("Animation Basics")]
     private static Animator animator;
     private static string currentClip;
+    private PlayerToolSelectionAndUse playerTools;
 
     [Header("Boolean")]
+    public char direction;
     public bool isMoving;
     public bool usingTool;
 
@@ -56,8 +59,11 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Start()
     {
+        direction = 'S';
         animator = GetComponent<Animator>();
-        SetUpPlayerMovement();
+        setUpPlayerMovement();
+        setUpTools();
+        
     }
 
     public static void ChangeAnimation(string newAnimation)
@@ -77,17 +83,6 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
-    public static IEnumerator playOnce(string newAnimation)
-    {
-        string oldClip = currentClip;
-
-        ChangeAnimation(newAnimation);
-
-        yield return new WaitForSeconds(1.3f);
-
-        ChangeAnimation(oldClip);
-    }
-
     private void Update()
     {
         isMoving = iswalking();
@@ -97,14 +92,19 @@ public class PlayerAnimation : MonoBehaviour
     {
         if(!TimerCS.istPausiert)
         {
-            animateMovement();
+            if (playerTools.usingTool)
+            {
+                animateTool(playerTools.currentUsedTool);
+            }
+            else
+            {
+                animateMovement();
+            }
         }
     }
 
 
     [Header("Animtion Movement")]
-
-    char direction;
 
     bool isMovingUp;
     bool isMovingDown;
@@ -116,7 +116,7 @@ public class PlayerAnimation : MonoBehaviour
     bool prevIsMovingLeft;
     bool prevIsMovingRight;
 
-    private void SetUpPlayerMovement()
+    private void setUpPlayerMovement()
     {
         direction = 'S';
         prevIsMovingUp = isMovingUp;
@@ -231,7 +231,7 @@ public class PlayerAnimation : MonoBehaviour
         }
         if (prevIsMovingLeft && !isMovingLeft)
         {
-            if (!isMoving)
+            if (!iswalking())
             {
                 ChangeAnimation(IdleLeft);
                 direction = 'A';
@@ -297,5 +297,88 @@ public class PlayerAnimation : MonoBehaviour
             ChangeAnimation(IdleRigth);
         }
     }
+
+    [Header("Tools")]
+    public string currentTool;
+    public bool axe;
+    public bool hoe;
+    public bool watringCan;
+
+    private void setUpTools()
+    {
+        playerTools = GetComponent<PlayerToolSelectionAndUse>();
+    }
+
+    private void animateTool(string tool)
+    {
+        currentTool = tool;
+        if (tool == null)
+        {
+            Debug.Log("No toll used");
+            idleAnimation();
+            return;
+        }
+        if (direction == 'W')
+        {
+            if (tool == "axe")
+            {
+                ChangeAnimation(AxeBack);
+            }
+            if (tool == "hoe")
+            {
+                ChangeAnimation(TilingBack);
+            }
+            if (tool == "wateringcan")
+            {
+                ChangeAnimation(WateringBack);
+            }
+        }
+        if (direction == 'S')
+        {
+            if (tool == "axe")
+            {
+                ChangeAnimation(AxeFront);
+            }
+            if (tool == "hoe")
+            {
+                ChangeAnimation(TilingFront);
+            }
+            if (tool == "wateringcan")
+            {
+                ChangeAnimation(WateringFront);
+            }
+        }
+        if (direction == 'A')
+        {
+            if (tool == "axe")
+            {
+                ChangeAnimation(AxeLeft);
+            }
+            if (tool == "hoe")
+            {
+                ChangeAnimation(TilingLeft);
+            }
+            if (tool == "wateringcan")
+            {
+                ChangeAnimation(WateringLeft);
+            }
+        }
+        if (direction == 'D')
+        {
+            if (tool == "axe")
+            {
+                ChangeAnimation(AxeRigth);
+            }
+            if (tool == "hoe")
+            {
+                ChangeAnimation(TilingRigth);
+            }
+            if (tool == "wateringcan")
+            {
+                ChangeAnimation(WateringRigth);
+            }
+        }
+    }
+
 
 }

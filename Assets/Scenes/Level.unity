@@ -20786,6 +20786,10 @@ PrefabInstance:
       propertyPath: tileCurser
       value: 
       objectReference: {fileID: 285872561}
+    - target: {fileID: 2380300679689929331, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
+      propertyPath: direction
+      value: 101
+      objectReference: {fileID: 0}
     - target: {fileID: 5751395237603294693, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -16,6 +16,8 @@ public class PlayerToolSelectionAndUse : MonoBehaviour
     public bool hoe;
     public bool watringCan;
 
+    public string currentUsedTool;
+
     void Start()
     {
         hoe = true;
@@ -52,82 +54,15 @@ public class PlayerToolSelectionAndUse : MonoBehaviour
 
     private void checkforTool()
     {
-        if (usingTool)
+        if (!prevUsingTool && usingTool)
         {
-            animatePlayer();
+            if (axe) currentUsedTool = "axe";
+            if (hoe) currentUsedTool = "hoe";
+            if (watringCan) currentUsedTool = "wateringcan";
         }
-        if (!usingTool)
+        if (prevUsingTool && !usingTool)
         {
-
-        }
-    }
-
-    private void useTool()
-    {
-        
-    }
-
-    private void animatePlayer()
-    {
-        if (playerMovement.direction == 'W')
-        {
-            if (axe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.AxeBack);
-            }
-            if (hoe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.TilingBack);
-            }
-            if (watringCan)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WateringBack);
-            }
-        }
-        if (playerMovement.direction == 'S')
-        {
-            if (axe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.AxeFront);
-            }
-            if (hoe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.TilingFront);
-            }
-            if (watringCan)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WateringFront);
-            }
-        }
-        if (playerMovement.direction == 'A')
-        {
-            if (axe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.AxeLeft);
-            }
-            if (hoe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.TilingLeft);
-            }
-            if (watringCan)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WateringLeft);
-            }
-        }
-        if (playerMovement.direction == 'D')
-        {
-            if (axe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.AxeRigth);
-            }
-            if (hoe)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.TilingRigth);
-            }
-            if (watringCan)
-            {
-                PlayerAnimation.ChangeAnimation(PlayerAnimation.WateringRigth);
-            }
+            currentUsedTool = null;
         }
     }
 }
