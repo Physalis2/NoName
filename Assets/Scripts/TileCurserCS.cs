@@ -6,7 +6,7 @@ public class TileCurserCS : MonoBehaviour
 {
     [SerializeField] Grid grid;
     [SerializeField] GameObject player;
-    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] char playerDirection;
 
     [Header("")]
@@ -19,12 +19,12 @@ public class TileCurserCS : MonoBehaviour
         curser.SetActive(false);
         grid = GameObject.Find("Grid").GetComponent<Grid>();
         player = GameObject.Find("Player");
-        playerMovement = player.GetComponent<PlayerMovement>();
+        playerAnimation = player.GetComponent<PlayerAnimation>();
     }
 
     private void Update()
     {
-        playerDirection = playerMovement.direction;
+        playerDirection = playerAnimation.direction;
     }
 
     void FixedUpdate()

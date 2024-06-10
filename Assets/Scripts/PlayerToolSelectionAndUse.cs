@@ -52,7 +52,7 @@ public class PlayerToolSelectionAndUse : MonoBehaviour
         }
     }
 
-    private void checkforTool()
+    public void checkforTool()
     {
         if (!prevUsingTool && usingTool)
         {
@@ -62,7 +62,7 @@ public class PlayerToolSelectionAndUse : MonoBehaviour
         }
         if (prevUsingTool && !usingTool)
         {
-            currentUsedTool = null;
+            currentUsedTool = "none";
         }
     }
 }

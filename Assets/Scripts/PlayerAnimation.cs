@@ -88,16 +88,26 @@ public class PlayerAnimation : MonoBehaviour
         isMoving = iswalking();
     }
 
+    int toolusage = 0;
+
     private void FixedUpdate()
     {
         if(!TimerCS.istPausiert)
         {
             if (playerTools.usingTool)
             {
+                toolusage = 1;
                 animateTool(playerTools.currentUsedTool);
             }
             else
             {
+                if ((playerTools.currentUsedTool == "none") && (toolusage == 1))
+                {
+                    toolusage = 0;
+                    playerTools.checkforTool();
+                    currentTool = playerTools.currentUsedTool;
+                    idleAnimation();
+                }
                 animateMovement();
             }
         }
@@ -319,7 +329,7 @@ public class PlayerAnimation : MonoBehaviour
     private void animateTool(string tool)
     {
         currentTool = tool;
-        if (tool == null)
+        if (tool == "none")
         {
             Debug.Log("No toll used");
             idleAnimation();
