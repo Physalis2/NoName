@@ -67,6 +67,7 @@ public class TileCurserCS : MonoBehaviour
             curser.SetActive(true);
             isAttached = true;
             curser.transform.position = collision.gameObject.GetComponent<PlotCS>().nearestPlotPosition();
+            Debug.Log(collision.name);
         }
     }
 
