@@ -12,8 +12,9 @@ public class PlayerAnimation : MonoBehaviour
 {
     // Animation ============
     [Header("Animation Basics")]
-    private static Animator animator;
-    private static string currentClip;
+    private Animator animator;
+    private PlayerMovement playerMovement;
+    private string currentClip;
     private PlayerToolSelectionAndUse playerTools;
 
     [Header("Boolean")]
@@ -59,14 +60,14 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Start()
     {
-        direction = 'S';
         animator = GetComponent<Animator>();
-        setUpPlayerMovement();
+        playerMovement = GetComponent<PlayerMovement>();
         setUpTools();
-        
+
+        playerMovement.animationMovement += animateMovement;
     }
 
-    public static void ChangeAnimation(string newAnimation)
+    public void ChangeAnimation(string newAnimation)
     {
         if (!TimerCS.istPausiert)
         {
@@ -85,14 +86,14 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        isMoving = iswalking();
+
     }
 
     int toolusage = 0;
 
     private void FixedUpdate()
     {
-        if(!TimerCS.istPausiert)
+        if (!TimerCS.istPausiert && 0 ==1)
         {
             if (playerTools.usingTool)
             {
@@ -108,191 +109,14 @@ public class PlayerAnimation : MonoBehaviour
                     currentTool = playerTools.currentUsedTool;
                     idleAnimation();
                 }
-                animateMovement();
+
             }
         }
     }
 
-
-    [Header("Animtion Movement")]
-
-    bool isMovingUp;
-    bool isMovingDown;
-    bool isMovingLeft;
-    bool isMovingRight;
-
-    bool prevIsMovingUp;
-    bool prevIsMovingDown;
-    bool prevIsMovingLeft;
-    bool prevIsMovingRight;
-
-    private void setUpPlayerMovement()
+    public void animateMovement(object sender, PlayerMovement.animationMovementArgs e)
     {
-        direction = 'S';
-        prevIsMovingUp = isMovingUp;
-        prevIsMovingDown = isMovingDown;
-        prevIsMovingLeft = isMovingLeft;
-        prevIsMovingRight = isMovingRight;
-    }
-
-
-
-    public void animateMovement()
-    {
-        isMovingUp = Input.GetKey(KeyCode.W);
-        isMovingDown = Input.GetKey(KeyCode.S);
-        isMovingLeft = Input.GetKey(KeyCode.A);
-        isMovingRight = Input.GetKey(KeyCode.D);
-
-        checkForBoolChangeToTrue();
-        checkForBoolChangeToFalse();
-
-        prevIsMovingUp = isMovingUp;
-        prevIsMovingDown = isMovingDown;
-        prevIsMovingLeft = isMovingLeft;
-        prevIsMovingRight = isMovingRight;
-    }
-
-    private bool iswalking()
-    {
-        if (playerTools.usingTool)
-        {
-            return false;
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-
-    private void checkForBoolChangeToTrue()
-    {
-        if (!prevIsMovingUp && isMovingUp)
-        {
-            ChangeAnimation(WalkBack);
-            direction = 'W';
-        }
-        if (!prevIsMovingDown && isMovingDown)
-        {
-            ChangeAnimation(WalkFront);
-            direction = 'S';
-        }
-        if (!prevIsMovingLeft && isMovingLeft)
-        {
-            ChangeAnimation(WalkLeft);
-            direction = 'A';
-        }
-        if (!prevIsMovingRight && isMovingRight)
-        {
-            ChangeAnimation(WalkRigth);
-            direction = 'D';
-        }
-    }
-
-    private void checkForBoolChangeToFalse()
-    {
-        if (prevIsMovingUp && !isMovingUp)
-        {
-            if (!iswalking())
-            {
-                ChangeAnimation(IdleBack);
-                direction = 'W';
-            }
-
-            if (isMovingDown)
-            {
-                ChangeAnimation(WalkFront);
-                direction = 'S';
-            }
-            if (isMovingLeft)
-            {
-                ChangeAnimation(WalkLeft);
-                direction = 'A';
-            }
-            if (isMovingRight)
-            {
-                ChangeAnimation(WalkRigth);
-                direction = 'D';
-            }
-        }
-        if (prevIsMovingDown && !isMovingDown)
-        {
-            if (!iswalking())
-            {
-                ChangeAnimation(IdleFront);
-                direction = 'S';
-            }
-
-            if (isMovingUp)
-            {
-                ChangeAnimation(WalkBack);
-                direction = 'W';
-            }
-            if (isMovingLeft)
-            {
-                ChangeAnimation(WalkLeft);
-                direction = 'A';
-            }
-            if (isMovingRight)
-            {
-                ChangeAnimation(WalkRigth);
-                direction = 'D';
-            }
-        }
-        if (prevIsMovingLeft && !isMovingLeft)
-        {
-            if (!iswalking())
-            {
-                ChangeAnimation(IdleLeft);
-                direction = 'A';
-            }
-
-            if (isMovingUp)
-            {
-                ChangeAnimation(WalkBack);
-                direction = 'W';
-            }
-            if (isMovingDown)
-            {
-                ChangeAnimation(WalkFront);
-                direction = 'S';
-            }
-            if (isMovingRight)
-            {
-                ChangeAnimation(WalkRigth);
-                direction = 'D';
-            }
-        }
-        if (prevIsMovingRight && !isMovingRight)
-        {
-            if (!iswalking())
-            {
-                ChangeAnimation(IdleRigth);
-            }
-
-            if (isMovingUp)
-            {
-                ChangeAnimation(WalkBack);
-                direction = 'W';
-            }
-            if (isMovingDown)
-            {
-                ChangeAnimation(WalkFront);
-                direction = 'S';
-            }
-            if (isMovingLeft)
-            {
-                ChangeAnimation(WalkLeft);
-                direction = 'A';
-            }
-        }
+        Debug.Log(e.direction);
     }
 
     public void idleAnimation()

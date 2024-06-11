@@ -62,7 +62,6 @@ public class TileCurserCS : MonoBehaviour
     {
         if (collision.tag == "Soil")
         {
-            Debug.Log("hi");
             positionMiddel = collision.gameObject.GetComponent<PlotCS>().middelTile;
             curser.SetActive(true);
             isAttached = true;
