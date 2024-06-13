@@ -1,57 +1,54 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    [Header("")]
-    [SerializeField] PlayerToolSelectionAndUse playerTool;
+    private void Awake()
+    {
 
-    [Header("")]
-    [SerializeField] float WalkingSpeed;
-
-    bool isMovingUp;
-    bool isMovingDown;
-    bool isMovingLeft;
-    bool isMovingRight;
-
-    bool prevIsMovingUp;
-    bool prevIsMovingDown;
-    bool prevIsMovingLeft;
-    bool prevIsMovingRight;
-
-    [Header("")]
-    [SerializeField] char direction;
+    }
 
     void Start()
     {
-        prevIsMovingUp = isMovingUp;
-        prevIsMovingDown = isMovingDown;
-        prevIsMovingLeft = isMovingLeft;
-        prevIsMovingRight = isMovingRight;
+
     }
+
+    [Header("Action")]
+    [SerializeField] bool walking;
+    [SerializeField] bool usingTool1;
 
     void Update()
     {
-
+        if (!TimerCS.istPausiert)
+        {
+            direction1 = direction;
+            usingTool1 = usingTool;
+            walking = isWalking;
+        }
     }
+
     private void FixedUpdate()
     {
         if (!TimerCS.istPausiert)
         {
-            if (playerTool.usingTool)
+            useTool();
+            // Aktionen die nicht whärend tools genutzt werden können
+            if (!usingTool)
             {
-
-            }
-            else
-            {
+                directionDetection();
+                selectTool();
                 movePlayer();
-                sendAnimationEvents();
             }
         }
     }
+
+    // ------------------------------------------
+    // ------------------------------------------
+
+    [Header("PlayerMovement")]
+    [SerializeField] float playerSpeed;
+    public static bool isWalking;
 
     private void movePlayer()
     {
@@ -72,26 +69,35 @@ public class PlayerMovement : MonoBehaviour
         {
             movement += Vector2.right;
         }
-
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
         movement.Normalize();
 
-        transform.Translate(movement * WalkingSpeed * Time.deltaTime);
-
+        transform.Translate(movement * playerSpeed * Time.deltaTime);
     }
 
-    //  -----------------------------------------
+    // ------------------------------------------
 
-    public event EventHandler<animationMovementArgs> animationMovement;
+    [SerializeField] char direction1;
+    public static char direction;
 
-    public class animationMovementArgs : EventArgs
-    {
-        public bool isWalking;
-        public char direction;
-    }
+    bool isMovingUp;
+    bool isMovingDown;
+    bool isMovingLeft;
+    bool isMovingRight;
 
+    bool prevIsMovingUp;
+    bool prevIsMovingDown;
+    bool prevIsMovingLeft;
+    bool prevIsMovingRight;
 
-
-    public void sendAnimationEvents()
+    public void directionDetection()
     {
         isMovingUp = Input.GetKey(KeyCode.W);
         isMovingDown = Input.GetKey(KeyCode.S);
@@ -101,26 +107,10 @@ public class PlayerMovement : MonoBehaviour
         checkForBoolChangeToTrue();
         checkForBoolChangeToFalse();
 
-        animationMovement?.Invoke(this, new animationMovementArgs { isWalking = iswalking(), direction = direction });
-
         prevIsMovingUp = isMovingUp;
         prevIsMovingDown = isMovingDown;
         prevIsMovingLeft = isMovingLeft;
         prevIsMovingRight = isMovingRight;
-    }
-
-    private bool iswalking()
-    {
-
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-        
     }
 
     private void checkForBoolChangeToTrue()
@@ -147,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (prevIsMovingUp && !isMovingUp)
         {
-            if (!iswalking())
+            if (!isWalking)
             {
                 direction = 'W';
             }
@@ -167,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (prevIsMovingDown && !isMovingDown)
         {
-            if (!iswalking())
+            if (!isWalking)
             {
                 direction = 'S';
             }
@@ -187,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (prevIsMovingLeft && !isMovingLeft)
         {
-            if (!iswalking())
+            if (!isWalking)
             {
                 direction = 'A';
             }
@@ -207,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (prevIsMovingRight && !isMovingRight)
         {
-            if (!iswalking())
+            if (!isWalking)
             {
             }
 
@@ -223,6 +213,57 @@ public class PlayerMovement : MonoBehaviour
             {
                 direction = 'A';
             }
+        }
+    }
+
+    // ------------------------------------------
+    // ------------------------------------------
+
+    [Header("Tools")]
+    [SerializeField] static string toolInUse;
+    [SerializeField] static bool usingTool;
+
+    private void useTool()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            usingTool = true;
+            isWalking = false;
+
+            // tool functionality
+            if (toolInUse == "Axe")
+            {
+
+            }
+            if (toolInUse == "Hoe")
+            {
+
+            }
+            if (toolInUse == "WateringCan")
+            {
+
+            }
+        }
+        else
+        {
+            usingTool = false;
+        }
+    }
+
+
+    private void selectTool()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            toolInUse = "Axe";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            toolInUse = "Hoe";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            toolInUse = "WateringCan";
         }
     }
 }

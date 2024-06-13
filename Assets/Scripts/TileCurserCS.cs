@@ -24,7 +24,7 @@ public class TileCurserCS : MonoBehaviour
 
     private void Update()
     {
-        playerDirection = playerAnimation.direction;
+        playerDirection = Player.direction;
     }
 
     void FixedUpdate()

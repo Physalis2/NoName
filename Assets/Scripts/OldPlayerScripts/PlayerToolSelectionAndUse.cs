@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerToolSelectionAndUse : MonoBehaviour
+class PlayerToolSelectionAndUse : MonoBehaviour
 {
     [Header("")]
     [SerializeField] PlayerMovement playerMovement;

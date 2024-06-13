@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
-public class PlayerAnimation : MonoBehaviour
+class PlayerAnimation : MonoBehaviour
 {
     // Animation ============
     [Header("Animation Basics")]
@@ -58,15 +58,6 @@ public class PlayerAnimation : MonoBehaviour
 
     //  =====================
 
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
-        setUpTools();
-
-        playerMovement.animationMovement += animateMovement;
-    }
-
     public void ChangeAnimation(string newAnimation)
     {
         if (!TimerCS.istPausiert)
@@ -112,11 +103,6 @@ public class PlayerAnimation : MonoBehaviour
 
             }
         }
-    }
-
-    public void animateMovement(object sender, PlayerMovement.animationMovementArgs e)
-    {
-        Debug.Log(e.direction);
     }
 
     public void idleAnimation()

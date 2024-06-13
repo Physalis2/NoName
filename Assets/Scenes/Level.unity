@@ -259,17 +259,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211966180}
   m_CullTransparentMesh: 1
---- !u!114 &285872561 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 126078725519889959, guid: adbebd9a7bea0014fb91e677ea4625ac, type: 3}
-  m_PrefabInstance: {fileID: 1138993779}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f2ae5763cc45342946570ed495556e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &288075163
 GameObject:
   m_ObjectHideFlags: 0
@@ -20781,14 +20770,6 @@ PrefabInstance:
     - target: {fileID: 2152194451269508539, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2367891623173569465, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
-      propertyPath: tileCurser
-      value: 
-      objectReference: {fileID: 285872561}
-    - target: {fileID: 2380300679689929331, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
-      propertyPath: direction
-      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 5751395237603294693, guid: 27d982b15bfab014fa46721805edc7f2, type: 3}
       propertyPath: m_LocalPosition.x
