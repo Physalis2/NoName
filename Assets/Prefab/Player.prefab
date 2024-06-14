@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walking: 0
-  usingTool: 0
+  usingTool1: 0
   playerSpeed: 5
   direction1: 83
 --- !u!50 &5432614388281380882

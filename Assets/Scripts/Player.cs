@@ -25,6 +25,17 @@ public class Player : MonoBehaviour
             direction1 = direction;
             usingTool1 = usingTool;
             walking = isWalking;
+
+            // -----------------
+
+            useTool();
+            // Aktionen die nicht whärend tools genutzt werden können
+            if (!usingTool)
+            {
+                directionDetection();
+                selectTool();
+                movePlayer();
+            }
         }
     }
 
